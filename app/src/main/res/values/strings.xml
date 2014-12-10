@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Agendaa</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Propiedades</string>
+    <string name="title_activity_main_activity2">Editar</string>
+    <string name="title_activity_lista">Lista De Contactos</string>
+
+    <string name="nombre">Nombre</string>
+    <string name="telefono">Teléfono</string>
+    <string name="anhadir">Añadir</string>
+    <string name="editar">Editar</string>
+    <string name="listar">Ver lista</string>
+    <string name="noNameMsg">Falta informacion.</string>
+
+</resources>
