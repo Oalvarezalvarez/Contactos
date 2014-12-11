@@ -91,8 +91,8 @@ public class MainActivity extends Activity
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK)
         {
-            Agenda modificado = (Agenda) data.getSerializableExtra("id4");
-            Agenda contacto = (Agenda) data.getSerializableExtra("id3");
+            Agenda modificado = (Agenda) data.getSerializableExtra("id3");
+            Agenda contacto = (Agenda) data.getSerializableExtra("id4");
 
             for (int i = 0; i < agenda.size(); i++)
             {

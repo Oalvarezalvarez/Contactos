@@ -24,6 +24,7 @@ public class MainActivity2 extends Activity
         final EditText eNombre = (EditText) findViewById(R.id.eNombre);
         final EditText eTelefono = (EditText) findViewById(R.id.eTelefono);
 
+        Button bBorrar = (Button) findViewById(R.id.button2);
         Button bEditar = (Button) findViewById(R.id.bEditar);
 
         eNombre.setText(contacto.getNombre());
@@ -34,7 +35,7 @@ public class MainActivity2 extends Activity
             @Override
             public void onClick(View v)
             {
-                /*if ("".equalsIgnoreCase(eNombre.getText().toString().trim()) || "".equalsIgnoreCase(eTelefono.getText().toString().trim()))
+                if ("".equalsIgnoreCase(eNombre.getText().toString().trim()) || "".equalsIgnoreCase(eTelefono.getText().toString().trim()))
                 {
                     showToast("ERROR");
                     return;
@@ -47,19 +48,30 @@ public class MainActivity2 extends Activity
                     intento.putExtra("id3", modificado);
                     intento.putExtra("id4",contacto);
                     setResult(RESULT_OK, intento);
-                    finish();*/
-
-                    final Intent intento = new Intent(MainActivity2.this, ActivityBorrar.class);
-
-                    Agenda modificado = new Agenda(eNombre.getText().toString(),Integer.parseInt(eTelefono.getText().toString()));
-                    intento.putExtra("id3", modificado);
-
-                    //setResult(RESULT_OK, intento);
-                    startActivity(intento);
                     finish();
-                //}
+
+                }
             }
+
         });
+
+        bBorrar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                final Intent intento = new Intent(MainActivity2.this, ActivityBorrar.class);
+
+                Agenda modificado = new Agenda(eNombre.getText().toString(),Integer.parseInt(eTelefono.getText().toString()));
+                intento.putExtra("id3", modificado);
+                startActivity(intento);
+                finish();
+            }
+
+        }
+
+        );
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)

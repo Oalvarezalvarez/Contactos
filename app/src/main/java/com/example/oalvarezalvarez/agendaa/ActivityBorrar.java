@@ -34,8 +34,8 @@ public class ActivityBorrar extends Activity
                 final Intent intento = new Intent(ActivityBorrar.this, MainActivity.class);
 
                 Agenda modificado = new Agenda(nom.getText().toString(),Integer.parseInt(tel.getText().toString()));
-                intento.putExtra("id4", modificado);
-                intento.putExtra("id3",contacto);
+                intento.putExtra("id3", modificado);
+                intento.putExtra("id4",contacto);
                 setResult(RESULT_OK, intento);
                 startActivity(intento);
                 finish();
