@@ -29,7 +29,7 @@ public class MainActivity extends Activity
         Button bListar = (Button) findViewById(R.id.bListar);
 
 
-//AÑADIR CONTACTOS
+
         bAñadir.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -52,7 +52,8 @@ public class MainActivity extends Activity
             }
         });
 
-//LISTA DE CONTACTOS AÑADIDOS
+        
+
         bListar.setOnClickListener(new View.OnClickListener()
         {
             @Override
