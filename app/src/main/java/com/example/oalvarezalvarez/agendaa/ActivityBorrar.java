@@ -9,9 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 
 public class ActivityBorrar extends Activity
 {
+    Agenda obj;
+    public ArrayList<Agenda> agenda = new ArrayList<Agenda>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,6 +31,7 @@ public class ActivityBorrar extends Activity
         nom.setText(contacto.getNombre());
         tel.setText(String.valueOf(contacto.getTelefono()));
 
+
         b.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -33,15 +39,17 @@ public class ActivityBorrar extends Activity
             {
                 final Intent intento = new Intent(ActivityBorrar.this, MainActivity.class);
 
-                Agenda modificado = new Agenda(nom.getText().toString(),Integer.parseInt(tel.getText().toString()));
-                intento.putExtra("id3", modificado);
+                Agenda cBorrado = new Agenda("", contacto.getTelefono());
+                intento.putExtra("id5", cBorrado);
                 intento.putExtra("id4",contacto);
                 setResult(RESULT_OK, intento);
                 startActivity(intento);
                 finish();
+
             }
         });
     }
+
 
 
     @Override

@@ -28,8 +28,6 @@ public class MainActivity extends Activity
         Button bAñadir = (Button) findViewById(R.id.bAñadir);
         Button bListar = (Button) findViewById(R.id.bListar);
 
-
-
         bAñadir.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -93,6 +91,7 @@ public class MainActivity extends Activity
         {
             Agenda modificado = (Agenda) data.getSerializableExtra("id3");
             Agenda contacto = (Agenda) data.getSerializableExtra("id4");
+            Agenda cBorrado = (Agenda) data.getSerializableExtra("id5");
 
             for (int i = 0; i < agenda.size(); i++)
             {
@@ -101,6 +100,13 @@ public class MainActivity extends Activity
                     agenda.get(i).setNombre(modificado.getNombre());
                     agenda.get(i).setTelefono(modificado.getTelefono());
                 }
+
+                if(agenda.get(i).getNombre().equalsIgnoreCase(cBorrado.getNombre()))
+                {
+                    agenda.get(i).setNombre("");
+                    agenda.get(i).setTelefono(Integer.parseInt(""));
+                }
+
             }
 
             showToast("Has añadido el nombre: " + modificado.getNombre() + " y su telefono: " + String.valueOf(modificado.getTelefono()));
