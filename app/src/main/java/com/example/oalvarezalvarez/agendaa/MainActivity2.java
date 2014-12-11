@@ -11,38 +11,38 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 
 public class MainActivity2 extends Activity
 {
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2);
-
-
-
-        final Intent intento = new Intent(MainActivity2.this, MainActivity.class);
 
         final Agenda contacto = (Agenda) getIntent().getSerializableExtra("id2");
         final EditText eNombre = (EditText) findViewById(R.id.eNombre);
         final EditText eTelefono = (EditText) findViewById(R.id.eTelefono);
-        Button bEditar = (Button) findViewById(R.id.bEEditar);
+
+        Button bEditar = (Button) findViewById(R.id.bEditar);
 
         eNombre.setText(contacto.getNombre());
         eTelefono.setText(String.valueOf(contacto.getTelefono()));
 
-        bEditar.setOnClickListener(new View.OnClickListener() {
+        bEditar.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
-                //comprobar si existe nombre
-                if ("".equalsIgnoreCase(eNombre.getText().toString().trim()) || "".equalsIgnoreCase(eTelefono.getText().toString().trim())) {
-                    //mostrar toast
-                    showToast();
+            public void onClick(View v)
+            {
+                if ("".equalsIgnoreCase(eNombre.getText().toString().trim()) || "".equalsIgnoreCase(eTelefono.getText().toString().trim()))
+                {
+                    showToast("ERROR");
                     return;
-                } else {
+                }
+                else
+                {
+                    final Intent intento = new Intent(MainActivity2.this, MainActivity.class);
+
                     Agenda modificado = new Agenda(eNombre.getText().toString(),Integer.parseInt(eTelefono.getText().toString()));
                     intento.putExtra("id3", modificado);
                     intento.putExtra("id4",contacto);
@@ -51,38 +51,30 @@ public class MainActivity2 extends Activity
                 }
             }
         });
-
-
     }
-
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.menu_main_activity2, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
-    protected void showToast() {
+    public void showToast(String mensaje)
+    {
         Context context = getApplicationContext();
-        CharSequence text = getResources().getString(R.string.noNameMsg);
         int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
+        Toast toast = Toast.makeText(context, mensaje, duration);
         toast.show();
     }
 }

@@ -8,10 +8,9 @@
     <string name="title_activity_lista">Lista De Contactos</string>
 
     <string name="nombre">Nombre</string>
-    <string name="telefono">Teléfono</string>
-    <string name="anhadir">Añadir</string>
+    <string name="telefono">Telefono</string>
+    <string name="añadir">Añadir</string>
     <string name="editar">Editar</string>
     <string name="listar">Ver lista</string>
-    <string name="noNameMsg">Falta informacion.</string>
 
 </resources>
